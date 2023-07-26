@@ -1,0 +1,56 @@
+<p>Choose field</p>
+<form [formGroup]="formElementForm" (ngSubmit)="onSubmit()">
+  <label>
+    Type:
+    <select formControlName="type" (change)="showFieldConfig($event)">
+      <option *ngFor="let inputType of inputTypes" [value]="inputType">{{ inputType }}</option>
+    </select>
+  </label>
+  <ng-container [ngSwitch]="selectedInputType">
+    <ng-container *ngSwitchCase="'text'">
+      <label>
+        Label:
+        <input type="text" formControlName="label">
+      </label>
+      <label>
+        Name:
+        <input type="text" formControlName="name">
+      </label>
+      <label>
+        Required:
+        <input type="checkbox" formControlName="required">
+      </label>
+      <label>
+        Description:
+        <textarea formControlName="description"></textarea>
+      </label>
+    </ng-container>
+    <ng-container *ngSwitchCase="'select'">
+      <label>
+        Label:
+        <input type="text" formControlName="label">
+      </label>
+      <label>
+        Name:
+        <input type="text" formControlName="name">
+      </label>
+      <label>
+        Required:
+        <input type="checkbox" formControlName="required">
+      </label>
+      <label>
+        Description:
+        <textarea formControlName="description"></textarea>
+      </label>
+      <label>
+        Options:
+        <input type="text" formControlName="options">
+      </label>
+    </ng-container>
+
+    <!-- other types here -->
+
+  </ng-container>
+
+  <button type="submit">Add</button>
+</form>

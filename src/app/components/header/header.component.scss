@@ -1,0 +1,12 @@
+header {
+  background: lightblue;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
