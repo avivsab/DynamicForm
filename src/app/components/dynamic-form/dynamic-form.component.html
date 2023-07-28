@@ -1,0 +1,20 @@
+<form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()">
+    <ng-container *ngFor="let controlName of formControls">
+      <div *ngIf="controlName.endsWith('Group'); else basicControl">
+        <label>{{ controlName }}:</label>
+        <div formArrayName="{{ controlName }}">
+          <div *ngFor="let control of getFormControlArray(controlName).controls; let i = index">
+            <input type="{{ controlName === 'checkboxesGroup' ? 'checkbox' : 'radio' }}" [formControl]="control" />
+            <label>{{ getFormControlValue(controlName, i) }}</label>
+          </div>
+        </div>
+      </div>
+      <ng-template #basicControl>
+        <label>{{ controlName }}:</label>
+        <input type="text" [formControl]="dynamicForm.get(controlName)" />
+      </ng-template>
+    </ng-container>
+    <button type="submit" [disabled]="dynamicForm.invalid">Submit</button>
+  </form>
+  
+  

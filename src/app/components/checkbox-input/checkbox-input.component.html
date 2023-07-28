@@ -1,0 +1,23 @@
+<form [formGroup]="checkboxElement" (ngSubmit)="onSubmit()">
+  <label>
+    Type:
+    <input type="text" disabled value="checkbox" />
+  </label>
+  <label>
+    Label:
+    <input type="text" formControlName="label" />
+  </label>
+  <label>
+    Name:
+    <input type="text" formControlName="name" />
+  </label>
+  <label>
+    Required:
+    <input type="checkbox" formControlName="required" />
+  </label>
+  <label>
+    Checkboxes Group:
+    <textarea formControlName="checkboxesGroup" placeholder="separate with comma"></textarea>
+  </label>
+  <button type="submit" [disabled]="checkboxElement.invalid">submit</button>
+</form>

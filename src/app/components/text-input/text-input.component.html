@@ -1,0 +1,18 @@
+<form [formGroup]="inputTextForm" (ngSubmit)="onSubmit()">
+<label>
+  Type:
+  <input type="text" disabled value="text" />
+</label>
+  <label>
+  Label:
+  <input type="text" [value]="inputTextForm.get('label').value" />
+</label>
+<label>
+  Name:
+  <input type="text" [value]="inputTextForm.get('name').value" />
+</label>
+<label>
+  Required:
+  <input type="checkbox" [value]="inputTextForm.get('required')" />
+</label>
+</form>

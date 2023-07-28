@@ -1,0 +1,23 @@
+<form [formGroup]="selectElement" (ngSubmit)="onSubmit()">
+<label>
+  Type:
+  <input type="text" disabled [value]="selectElement.get('type').value" />
+</label>
+  <label>
+  Label:
+  <input type="text" formControlName="label" [value]="selectElement.get('label').value" />
+</label>
+<label>
+  Name:
+  <input type="text" formControlName="name" [value]="selectElement.get('name').value" />
+</label>
+<label>
+  Required:
+  <input type="checkbox" formControlName="required" [value]="selectElement.get('required').value" />
+</label>
+<label>
+  Add options:
+  <textarea formControlName="options" [value]="selectElement.get('options').value" placeholder="separate with comma"></textarea>
+</label>
+  <button type="submit" [disabled]="selectElement.invalid">submit</button>
+</form>

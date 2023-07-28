@@ -1,4 +1,5 @@
 export enum InputType {
+  None = '--select input--',
   Text = 'text',
   Checkbox = 'checkbox',
   Radio = 'radio',
@@ -10,7 +11,11 @@ export interface FormField {
   label: string;
   name: string;
   required: boolean;
-  options?: string[];
-  bindTo?: string;
-  description?: string;
 }
+
+export interface FormFieldGroup extends FormField {
+  options?: string[];
+  checkboxesGroup?: string[];
+  radiosGroup?: string[];
+}
+
